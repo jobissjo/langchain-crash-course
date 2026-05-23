@@ -1,11 +1,11 @@
 # Prompt Template Docs:
 #   https://python.langchain.com/v0.2/docs/concepts/#prompt-templateshttps://python.langchain.com/v0.2/docs/concepts/#prompt-templates
 
-from langchain.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage
 
 # # PART 1: Create a ChatPromptTemplate using a template string
-# template = "Tell me a joke about {topic}."
+# template = "Tell me a joke about {topic"
 # prompt_template = ChatPromptTemplate.from_template(template)
 
 # print("-----Prompt from Template-----")
