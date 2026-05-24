@@ -1,14 +1,14 @@
 from dotenv import load_dotenv
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema.output_parser import StrOutputParser
-from langchain.schema.runnable import RunnableLambda
-from langchain_openai import ChatOpenAI
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.runnables import RunnableLambda
+from langchain_groq import ChatGroq
 
 # Load environment variables from .env
 load_dotenv()
 
 # Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+model = ChatGroq(model="llama-3.1-8b-instant", temperature=0.7, max_tokens=500)
 
 # Define prompt templates
 prompt_template = ChatPromptTemplate.from_messages(
@@ -29,4 +29,13 @@ chain = prompt_template | model | StrOutputParser() | uppercase_output | count_w
 result = chain.invoke({"topic": "lawyers", "joke_count": 3})
 
 # Output
-print(result)
+# print(result)
+
+lowercase_output = RunnableLambda(lambda x: x.lower())
+
+chain2 = prompt_template | model | StrOutputParser() | lowercase_output
+
+result2 = chain2.invoke({"topic": "lawyers", "joke_count": 3})
+
+print(result2)
+
