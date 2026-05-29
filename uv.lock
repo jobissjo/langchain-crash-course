@@ -626,6 +626,24 @@ wheels = [
 ]
 
 [[package]]
+name = "firecrawl"
+version = "4.28.2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "httpx" },
+    { name = "nest-asyncio" },
+    { name = "pydantic" },
+    { name = "python-dotenv" },
+    { name = "requests" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0b/be/fead16e9584d6e9de74b42ad75d446fee2a7be6ec1bc0625c42427ad581d/firecrawl-4.28.2.tar.gz", hash = "sha256:747449863629ac39ff2d890764107d19738b33c09555e789bd2a160a5243ab25", size = 191844 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/54/09/9c82ac924eece839f8c2bca44827282ed4ff832ee2ac6db8cd525912cb2d/firecrawl-4.28.2-py3-none-any.whl", hash = "sha256:1b861809a0dc240cc70fbffe509c9263e6878f21da13f1a329b8f781c65fb2a4", size = 239132 },
+]
+
+[[package]]
 name = "firestore"
 version = "0.0.8"
 source = { registry = "https://pypi.org/simple" }
@@ -1433,10 +1451,12 @@ source = { virtual = "." }
 dependencies = [
     { name = "bs4" },
     { name = "chromadb" },
+    { name = "firecrawl" },
     { name = "firestore" },
     { name = "langchain" },
     { name = "langchain-anthropic" },
     { name = "langchain-chroma" },
+    { name = "langchain-classic" },
     { name = "langchain-community" },
     { name = "langchain-google-genai" },
     { name = "langchain-groq" },
@@ -1452,10 +1472,12 @@ dependencies = [
 requires-dist = [
     { name = "bs4", specifier = ">=0.0.2" },
     { name = "chromadb", specifier = ">=1.5.9" },
+    { name = "firecrawl", specifier = ">=4.28.2" },
     { name = "firestore", specifier = ">=0.0.8" },
     { name = "langchain", specifier = ">=1.3.1" },
     { name = "langchain-anthropic", specifier = ">=1.4.3" },
     { name = "langchain-chroma", specifier = ">=1.1.0" },
+    { name = "langchain-classic", specifier = ">=1.0.7" },
     { name = "langchain-community", specifier = ">=0.4.2" },
     { name = "langchain-google-genai", specifier = ">=4.2.3" },
     { name = "langchain-groq", specifier = ">=1.1.2" },
@@ -1885,6 +1907,15 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/0c/f7/addf1087b860ac60e6f382240f64fb99f8bfb532bb06f7c542b83c29ca61/multidict-6.7.1-cp314-cp314t-win_amd64.whl", hash = "sha256:497bde6223c212ba11d462853cfa4f0ae6ef97465033e7dc9940cdb3ab5b48e5", size = 53542 },
     { url = "https://files.pythonhosted.org/packages/4c/81/4629d0aa32302ef7b2ec65c75a728cc5ff4fa410c50096174c1632e70b3e/multidict-6.7.1-cp314-cp314t-win_arm64.whl", hash = "sha256:2bbd113e0d4af5db41d5ebfe9ccaff89de2120578164f86a5d17d5a576d1e5b2", size = 44719 },
     { url = "https://files.pythonhosted.org/packages/81/08/7036c080d7117f28a4af526d794aab6a84463126db031b007717c1a6676e/multidict-6.7.1-py3-none-any.whl", hash = "sha256:55d97cc6dae627efa6a6e548885712d4864b81110ac76fa4e534c03819fa4a56", size = 12319 },
+]
+
+[[package]]
+name = "nest-asyncio"
+version = "1.6.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/83/f8/51569ac65d696c8ecbee95938f89d4abf00f47d58d48f6fbabfe8f0baefe/nest_asyncio-1.6.0.tar.gz", hash = "sha256:6f172d5449aca15afd6c646851f4e31e02c598d553a667e38cafa997cfec55fe", size = 7418 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a0/c4/c2971a3ba4c6103a3d10c4b0f24f461ddc027f0f09763220cf35ca1401b3/nest_asyncio-1.6.0-py3-none-any.whl", hash = "sha256:87af6efd6b5e897c81050477ef65c62e2b2f35d51703cae01aff2905b1852e1c", size = 5195 },
 ]
 
 [[package]]

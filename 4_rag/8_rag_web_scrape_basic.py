@@ -1,10 +1,11 @@
 import os
 
 from dotenv import load_dotenv
-from langchain.text_splitter import CharacterTextSplitter
+from langchain_text_splitters import CharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
-from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
+from langchain_chroma import Chroma
+# from langchain_openai import OpenAIEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 
 # Load environment variables from .env
 load_dotenv()
@@ -16,7 +17,7 @@ persistent_directory = os.path.join(db_dir, "chroma_db_apple")
 
 # Step 1: Scrape the content from apple.com using WebBaseLoader
 # WebBaseLoader loads web pages and extracts their content
-urls = ["https://www.apple.com/"]
+urls = ["https://books.toscrape.com/"]
 
 # Create a loader for web content
 loader = WebBaseLoader(urls)
@@ -34,7 +35,8 @@ print(f"Sample chunk:\n{docs[0].page_content}\n")
 
 # Step 3: Create embeddings for the document chunks
 # OpenAIEmbeddings turns text into numerical vectors that capture semantic meaning
-embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+# embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Step 4: Create and persist the vector store with the embeddings
 # Chroma stores the embeddings for efficient searching
@@ -54,7 +56,7 @@ retriever = db.as_retriever(
 )
 
 # Define the user's question
-query = "What new products are announced on Apple.com?"
+query = "What new books are announced on books.toscrape.com?"
 
 # Retrieve relevant documents based on the query
 relevant_docs = retriever.invoke(query)
